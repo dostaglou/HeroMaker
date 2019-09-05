@@ -1,0 +1,9 @@
+
+
+var displayCharacter = () => {
+  var content = '<%= j render("character_mini", character: @character) %>'
+  let displayBox = document.getElementById("char-details")
+  console.log("I am here");
+  displayBox.innerHTML = content
+};
+displayCharacter()

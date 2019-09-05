@@ -1,0 +1,32 @@
+<%#= render 'shared/nav-show' %>
+<div  class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("tavern.jpg") %>); background-size: cover; padding-bottom: 16px"> >
+
+    <!-- Text Goes here -->
+    <div class="show-text text-center" s>
+      <h1 class="styled-font">Welcome Adventurer!</h1>
+      <h3 class="styled-font">Here lies <%= "#{current_user.username}'s" %> tome of legends</h3>
+      <p class="font-white font-lilbigger">Within these pages you shall find a story known only to a few</p>
+    </div>
+    <div class="display-boxes">
+      <div><!-- Cards go in here-->
+        <!-- Loop below -->
+        <div class="cards-chars" >
+          <% @user.characters.each do |char| %>
+            <%= link_to character_path(char), remote: true do  %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url('female-face.jpg') %>)">
+            <%= char.name  %>
+            </div>
+            <% end %>
+          <% end  %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("female-face.jpg") %>);">
+          <%= link_to "add a character", new_character_path %>
+          </div>
+        </div>
+      </div>
+        <!-- BIG char display goes here -->
+      <div id="char-details" style="background-image: url(<%= image_url("tome-page.jpg") %>); background-size: cover">
+        <h1>THIS IS FOR THE SINGLE CHARACTER DISPLAY</h1>
+      </div>
+    </div>
+</div>
+

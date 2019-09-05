@@ -1,0 +1,33 @@
+<div class="container m-2 mt-4 font-white">
+  <%= link_to "#{character.name}", character_path(character), class: "dbtn-ghost mb-2" %>
+  <div class="mt-4 ml-1 row align-items-baseline">
+    <h3 class="pr-3">Name:</h3>
+    <h1 class="styled-font"><%= character.name %></h1>
+  </div>
+  <div class="mt-1 ml-1 row align-items-baseline">
+    <h5 class="pr-2">Gender:</h5>
+    <h4><%= character.gender.gender %></h4>
+  </div>
+  <div class="mt-1 ml-1 row align-items-baseline">
+    <h5 class="pr-2">Profession:</h5>
+    <h4><%= character.profession.job %></h4>
+  </div>
+  <div class="mt-1 ml-1 row align-items-baseline">
+    <h5 class="pr-2">Allies:</h5>
+    <h4><%= character.allies %></h4>
+  </div>
+  <div class="mt-1 ml-1 row align-items-baseline">
+    <h5 class="pr-2">Enemies:</h5>
+    <h4><%= character.enemies %></h4>
+  </div>
+  <div class="m-2">
+  <h3>Description:</h3>
+  <p class="ml-3"><%= character.description %></p>
+  </div>
+
+
+
+
+
+
+</div>

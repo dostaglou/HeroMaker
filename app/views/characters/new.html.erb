@@ -1,0 +1,23 @@
+<div class="hund-container" style="background-image: url(<%= image_url("tavern.jpg") %>);"> >
+  <div class="character-form-container" style=" background-image: linear-gradient(to right, rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= image_url("small-tome-page.png") %>">
+  <div class="user-form-container">
+    <h1 class="styled-font">Tell us about your new legendary figure!</h1>
+    <%= simple_form_for @character, class:"font-whites" do |f| %>
+    <%= f.input :name, label_html: { class:"font-white font-bigger shadow" }%>
+    <%#= f.input :picture %>
+    <%#= f.input :picture_cache, as: :hidden %>
+    <%= f.input :allies, label_html: { class:"font-white font-bigger shadow" }, required: false %>
+    <%= f.input :enemies, label_html: { class:" font-white font-bigger shadow" } %>
+    <%= f.input :description, label_html: { class:"font-white font-bigger shadow" }, input_html: {rows: 5} %>
+    <%= f.association :race, label_method: :race, label_html: { class:"font-white font-bigger shadow" }, required: false %>
+    <%= f.association :gender, label_method: :gender, label_html: { class:"font-white font-bigger shadow" } %>
+    <%= f.association :profession, label_method: :job, label_html: { class:"font-white font-bigger shadow" } %>
+    <div class="flx-container space-between">
+    <%= f.button :submit, class:"dbtn-ghost" %>
+    <%= link_to "return", user_path(current_user), class:"dbtn-ghost" %>
+    </div>
+    <% end %>
+  </div>
+  </div>
+</div>
+

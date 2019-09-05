@@ -1,0 +1,36 @@
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.bblack {
+  background: black;
+}
+
+.bblue {
+  background: blue;
+}
+
+.styled-font {
+  font-family: 'Niconne', cursive;
+  font-size: 3em;
+  color: white;
+}
+
+.font-white {
+  color:white;
+}
+
+.font-bigger {
+  font-size: 1.5em;
+}
+
+.font-lilbigger {
+  font-size: 1.2em;
+}
+
+.text-center {
+  text-align: center
+}
