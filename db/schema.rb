@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_020845) do
+ActiveRecord::Schema.define(version: 2019_09_05_034304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2019_09_05_020845) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.bigint "character_id"
+    t.text "story"
+    t.string "timeperiod"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_histories_on_character_id"
   end
 
   create_table "professions", force: :cascade do |t|
@@ -69,4 +78,5 @@ ActiveRecord::Schema.define(version: 2019_09_05_020845) do
   add_foreign_key "characters", "professions"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
+  add_foreign_key "histories", "characters"
 end

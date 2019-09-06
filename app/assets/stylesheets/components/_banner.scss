@@ -3,6 +3,19 @@
   background-position: center;
   width: 100vw;
   padding: 35vh 0;
+
+  .banner-dialog {
+    margin-left: 32px;
+    h1 {
+      font-size: 4em;
+      font-weight: lighter;
+    }
+    a {
+      display: inline;
+      margin-left: 16px;
+    }
+  }
+
 }
 
 .banner h1 {
