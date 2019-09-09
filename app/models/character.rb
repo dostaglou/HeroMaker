@@ -4,5 +4,6 @@ class Character < ApplicationRecord
   belongs_to :gender
   belongs_to :profession
   mount_uploader :picture, PictureUploader
+  has_many :biographies
 
 end
