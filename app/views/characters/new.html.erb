@@ -4,8 +4,8 @@
     <h1 class="styled-font">Tell us about your new legendary figure!</h1>
     <%= simple_form_for @character, class:"font-whites" do |f| %>
     <%= f.input :name, label_html: { class:"font-white font-bigger shadow" }%>
-    <%#= f.input :picture %>
-    <%#= f.input :picture_cache, as: :hidden %>
+    <%= f.input :picture %>
+    <%= f.input :picture_cache, as: :hidden %>
     <%= f.input :allies, label_html: { class:"font-white font-bigger shadow" }, required: false %>
     <%= f.input :enemies, label_html: { class:" font-white font-bigger shadow" } %>
     <%= f.input :description, label_html: { class:"font-white font-bigger shadow" }, input_html: {rows: 5} %>

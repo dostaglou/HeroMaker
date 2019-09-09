@@ -1,8 +1,9 @@
 .banner {
   background-size: cover;
   background-position: center;
-  width: 100vw;
-  padding: 35vh 0;
+  padding: 25vh 0;
+  max-width: 100vw;
+  margin: 0;
 
   .banner-dialog {
     margin-left: 32px;

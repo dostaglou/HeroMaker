@@ -13,7 +13,11 @@
         <div class="cards-chars" >
           <% @user.characters.each do |char| %>
             <%= link_to character_path(char), remote: true do  %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url('female-face.jpg') %>)">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= if char.picture.present?
+                  image_url(char.picture)
+                    else
+                  image_url('male-face.jpg')
+                  end %>);">
             <%= char.name  %>
             </div>
             <% end %>
