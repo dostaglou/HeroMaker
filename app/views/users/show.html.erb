@@ -1,36 +1,19 @@
-<%#= render 'shared/nav-show' %>
-<div  class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("tavern.jpg") %>); background-size: cover; padding-bottom: 16px; min-height: 100vh;"> >
+<%= render 'shared/navbar' %>
+<div  class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("tome-page.jpg") %>); background-size: cover; padding-bottom: 16px; min-height: 100vh;"> >
 
     <!-- Text Goes here -->
     <div class="show-text text-center" s>
-      <h1 class="styled-font">Welcome Adventurer!</h1>
-      <h3 class="styled-font">Here lies <%= "#{current_user.username}'s" %> tome of legends</h3>
-      <p class="font-white font-lilbigger">Within these pages you shall find a story known only to a few</p>
+      <h1 class="styled-font"><%= @user.username.capitalize %>'s Page!</h1>
     </div>
-    <div class="display-boxes">
-      <div><!-- Cards go in here-->
-        <!-- Loop below -->
-        <div class="cards-chars" >
-          <% @user.characters.each do |char| %>
-            <%= link_to character_path(char), remote: true do  %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= if char.picture.present?
-                  image_url(char.picture)
-                    else
-                  image_url('male-face.jpg')
-                  end %>);">
-            <%= char.name  %>
-            </div>
-            <% end %>
-          <% end  %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("female-face.jpg") %>);">
-          <%= link_to "add a character", new_character_path %>
-          </div>
-        </div>
-      </div>
-        <!-- BIG char display goes here -->
-      <div id="char-details" style="background-image: url(<%= image_url("tome-page.jpg") %>); background-size: cover">
-        <h1>THIS IS FOR THE SINGLE CHARACTER DISPLAY</h1>
-      </div>
+    <div style="width:90vw; margin: 0 auto;">
+    <%= render  partial: 'shared/char_scroll_display'%>
+    <%= render  partial: 'shared/story_scroll_display'%>
+    <%= render  partial: 'shared/table_scroll_display'%>
     </div>
+
 </div>
+
+
+
+
 

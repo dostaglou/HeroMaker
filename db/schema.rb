@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_120549) do
+ActiveRecord::Schema.define(version: 2019_09_12_085934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,15 +48,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_120549) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "histories", force: :cascade do |t|
-    t.bigint "character_id"
-    t.text "story"
-    t.string "timeperiod"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["character_id"], name: "index_histories_on_character_id"
-  end
-
   create_table "professions", force: :cascade do |t|
     t.string "job"
     t.datetime "created_at", null: false
@@ -67,6 +58,34 @@ ActiveRecord::Schema.define(version: 2019_09_09_120549) do
     t.string "race"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture"
+    t.index ["user_id"], name: "index_stories_on_user_id"
+  end
+
+  create_table "table_user_joins", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "table_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["table_id"], name: "index_table_user_joins_on_table_id"
+    t.index ["user_id"], name: "index_table_user_joins_on_user_id"
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture"
+    t.index ["user_id"], name: "index_tables_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,5 +107,8 @@ ActiveRecord::Schema.define(version: 2019_09_09_120549) do
   add_foreign_key "characters", "professions"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
-  add_foreign_key "histories", "characters"
+  add_foreign_key "stories", "users"
+  add_foreign_key "table_user_joins", "tables"
+  add_foreign_key "table_user_joins", "users"
+  add_foreign_key "tables", "users"
 end

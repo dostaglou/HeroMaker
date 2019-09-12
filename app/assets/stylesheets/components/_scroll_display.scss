@@ -1,0 +1,36 @@
+.scroll-container {
+  height: 200px;
+  margin: 0 auto;
+  background-color: transparent;
+  overflow: auto;
+
+  .scroll-container-item{
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    transition: 0.3s;
+    opacity: .7;
+    cursor: pointer;
+    margin: 4px;
+    &:hover {
+      transition: 0.3s;
+      opacity: 1;
+      cursor: pointer;
+    }
+
+  }
+}
+
+
+

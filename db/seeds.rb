@@ -2,8 +2,10 @@ User.destroy_all if Rails.env.development?
 Race.destroy_all if Rails.env.development?
 Gender.destroy_all if Rails.env.development?
 Profession.destroy_all if Rails.env.development?
-
-
+Biography.destroy_all if Rails.env.development?
+Table.destroy_all if Rails.env.development?
+TableUserJoin.destroy_all if Rails.env.development?
+puts "Post destory"
 races =
   %w[human dwarf elf half-elf hobbit orc half-orc tiefling dragonborn assimar].sort
 genders =
@@ -12,6 +14,8 @@ professions =
   %w[fighter soldier medic priest shaman monk knight sorcerer mage alchemist herbalist doctor sage scholar thief assassin tracker woodsman charlatan entertainer, musician].sort
 users =
   %w[dillon john aiden aaron darius rob]
+tables =
+  %w[dungeons dragons wizards warriors]
 
 races.each do |x|
   one = Race.new(race: x)
@@ -27,6 +31,11 @@ professions.each do |x|
   one.save!
 end
 
+tables.each do |x|
+  one = Table.new(name: x)
+  one.save!
+  end
+
 zero = User.new(
   username: "zero",
   email: 'test0@gmail.com',
@@ -34,26 +43,7 @@ zero = User.new(
 )
 zero.save!
 
-eighteen = User.new(
-  username: "eighteen",
-  password: 123123,
-  email: 'test18@gmail.com'
-)
-eighteen.save!
-
-18.times do
-  char = Character.new(
-    name: Faker::Movies::LordOfTheRings.character,
-    description: 'Tall dark and mysterious. From a world unknown to us all and with an appetite for violence that would shock even the vilest of murderers',
-    allies: Faker::Movies::LordOfTheRings.character,
-    enemies: Faker::Movies::LordOfTheRings.character,
-    user_id: eighteen.id,
-    race_id: 1,
-    gender_id: 1,
-    profession_id: 1
-  )
-  char.save!
-end
+puts "post zero / pre user"
 
 users.each do |x|
   one = User.new(
@@ -62,7 +52,7 @@ users.each do |x|
     email: "#{x}@gmail.com"
   )
   one.save!
-  6.times do
+  rand(2..6).times do
     char = Character.new(
       name: Faker::Movies::LordOfTheRings.character,
       description: 'Tall dark and mysterious. From a world unknown to us all and with an appetite for violence that would shock even the vilest of murderers',
@@ -74,5 +64,31 @@ users.each do |x|
       profession_id: 1
     )
     char.save!
+    puts  "post char.save"
+    rand(1..4).times do
+      history = Biography.new(
+        title: Faker::Books::Lovecraft.tome,
+        chapter: Faker::Books::Lovecraft.paragraphs(number: rand(2..5))
+        )
+      history.character_id = char.id
+      history.save!
+    end
+  end
+  rand(2..6).times do
+    story = Story.new(
+      title: Faker::Books::Lovecraft.tome,
+      content: Faker::Books::Lovecraft.paragraphs(number: rand(2..5)),
+      user_id: one.id
+      )
+    story.save!
+  puts ("post story.save")
+  end
+  rand(1..3).times do
+    puts ("pre table user join")
+    table = TableUserJoin.new(
+      user_id: one.id,
+      table_id: rand(1..4)
+      )
+    table.save!
   end
 end

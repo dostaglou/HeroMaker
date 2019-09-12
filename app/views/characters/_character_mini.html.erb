@@ -21,15 +21,16 @@
     <h4><%= character.enemies %></h4>
   </div>
   <div class="m-2">
+    <%= image_tag('male-human-fighter.jpg', height: 250) %>
+  </div>
+  <div class="m-2">
     <h3>Description:</h3>
     <p class="ml-3"><%= character.description %></p>
   </div>
-
-
-
-
-
-
-
-
+  <div class="m-2">
+    <h3>Last Chapter:</h3>
+    <h6 class="ml-3"><%= character.biographies.last.title %></h6>
+    <p class="ml-3"><%= character.biographies.last.chapter %></p>
+  </div>
 </div>
+

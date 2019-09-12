@@ -1,0 +1,28 @@
+<div class="pt-5">
+  <h3 class="styled-font"><%= "#{@user.username.capitalize}'s Characters" %></h3>
+  <div class="scroll-container d-flex">
+    <% if current_user == @user %>
+      <%= link_to new_character_path do %>
+      <div class="scroll-container-item" style="background-image: url(<%= image_url("female-face.jpg") %>);">
+        <p>New</p>
+      </div>
+      <% end %>
+    <% end %>
+    <% @user.characters.reverse.each do |char| %>
+      <%= link_to character_path(char) do  %>
+      <div class="scroll-container-item" style="background-image: url(<%= if char.picture.present?
+            image_url(char.picture)
+              else
+            image_url('male-face.jpg')
+            end %>);">
+      <%= char.name  %>
+      </div>
+      <% end %>
+    <% end  %>
+  </div>
+</div>
+<!-- <div class="display-boxes">
+  <div id="char-details" style="background-image: url(<%#= image_url("tome-page.jpg") %>); background-size: cover">
+    <h1>Click a character to learn more</h1>
+  </div>
+</div> -->
