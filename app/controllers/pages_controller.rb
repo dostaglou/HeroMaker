@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @latest_stories = Story.all.sample(3)
+    @characters = Character.all.sample(3)
   end
 
   def configure_permitted_parameters

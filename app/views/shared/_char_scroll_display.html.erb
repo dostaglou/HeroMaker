@@ -8,7 +8,7 @@
       </div>
       <% end %>
     <% end %>
-    <% @user.characters.reverse.each do |char| %>
+    <% @user.characters.each do |char| %>
       <%= link_to character_path(char) do  %>
       <div class="scroll-container-item" style="background-image: url(<%= if char.picture.present?
             image_url(char.picture)

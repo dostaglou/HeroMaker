@@ -3,6 +3,7 @@
   margin: 0 auto;
   background-color: transparent;
   overflow: auto;
+  border-bottom: 2px solid white;
 
   .scroll-container-item{
     position: relative;
@@ -27,6 +28,7 @@
       transition: 0.3s;
       opacity: 1;
       cursor: pointer;
+
     }
 
   }

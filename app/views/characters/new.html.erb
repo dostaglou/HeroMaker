@@ -6,6 +6,9 @@
     <%= f.input :name, label_html: { class:"font-white font-bigger shadow" }%>
     <%= f.input :picture %>
     <%= f.input :picture_cache, as: :hidden %>
+    <%= f.input :pdf %>
+    <%= f.input :pdf_cache, as: :hidden %>
+
     <%= f.input :allies, label_html: { class:"font-white font-bigger shadow" }, required: false %>
     <%= f.input :enemies, label_html: { class:" font-white font-bigger shadow" } %>
     <%= f.input :description, label_html: { class:"font-white font-bigger shadow" }, input_html: {rows: 5} %>

@@ -27,13 +27,19 @@
     margin: 4px;
     text-align: center;
     vertical-align: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= image_path("tome-page.jpg")%>);
     &:hover{
       flex: 9;
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("tome-page.jpg")%>);
       .holder{
         display: none;
       }
       .hover{
         display: block;
+        .hover-contents {
+        }
       }
     }
   }

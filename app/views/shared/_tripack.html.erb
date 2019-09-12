@@ -1,16 +1,75 @@
 <div class="tripack-container">
   <div class="tripack-contents">
-    <div class="item" style="background-image: url(<%= image_path("tome-page.jpg")%>)">
+    <div class="item">
       <div class="holder">Stories</div>
-      <div class="hover">read these daring tales of dohdah</div>
+      <div class="hover">
+        <div class="story">
+          <% @latest_stories.each do |story| %>
+            <% if story.picture.nil?  %>
+              <%= image_tag ('fullbook.jpg'), height: 200, class: 'mt-4'%>
+            <% end %>
+            <div class="styled-font mt-4">
+              <%= story.title %>
+            </div>
+            <br>
+            <div class="border-bottom pb-3"  style="color:white">
+             <%= story.content %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="item" style="background-image: url(<%= image_path("tome-page.jpg")%>)">
+    <div class="item">
       <div class="holder">Characters</div>
-      <div class="hover">Our community has generated a number of new characters of interest</div>
+      <div class="hover">
+        <div class="hover-contents">
+          <% @characters.each do |character| %>
+            <div class="m-2 mt-4 font-white">
+              <%= link_to "#{character.name}", character_path(character), class: "dbtn-ghost mb-2" %>
+              <div class="mt-4 ml-1 row align-items-baseline">
+                <h3 class="pr-3">Name:</h3>
+                <h1 class="styled-font"><%= character.name %></h1>
+              </div>
+              <div class="mt-1 ml-1 row align-items-baseline">
+                <h5 class="pr-2">Gender:</h5>
+                <h4><%= character.gender.gender %></h4>
+              </div>
+              <div class="mt-1 ml-1 row align-items-baseline">
+                <h5 class="pr-2">Profession:</h5>
+                <h4><%= character.profession.job %></h4>
+              </div>
+              <div class="mt-1 ml-1 row align-items-baseline">
+                <h5 class="pr-2">Allies:</h5>
+                <h4><%= character.allies %></h4>
+              </div>
+              <div class="mt-1 ml-1 row align-items-baseline">
+                <h5 class="pr-2">Enemies:</h5>
+                <h4><%= character.enemies %></h4>
+              </div>
+              <div class="m-2">
+                <%= image_tag('male-human-fighter.jpg', height: 250) %>
+              </div>
+              <div class="m-2">
+                <h3>Description:</h3>
+                <p class="ml-3"><%= character.description %></p>
+              </div>
+              <div class="m-2 pb-3 border-bottom">
+                <h3>Last Chapter:</h3>
+                <h6 class="ml-3"><%= character.biographies.last.title %></h6>
+                <p class="ml-3"><%= character.biographies.last.chapter %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="item" style="background-image: url(<%= image_path("tome-page.jpg")%>)">
+    <div class="item">
       <div class="holder">News</div>
-      <div class="hover">Here is a list of updates for you to be aware of</div>
+      <div class="hover">
+        <div style="color:white">
+          Here is a list of updates for you to be aware of
+        </div>
+      </div>
     </div>
   </div>
 </div>

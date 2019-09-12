@@ -53,7 +53,8 @@ class CharactersController < ApplicationController
       :race_id,
       :gender_id,
       :profession_id,
-      :picture
+      :picture,
+      :pdf
     )
   end
 
