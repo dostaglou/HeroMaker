@@ -28,9 +28,13 @@
     <p class="ml-3"><%= character.description %></p>
   </div>
   <div class="m-2">
-    <h3>Last Chapter:</h3>
-    <h6 class="ml-3"><%= character.biographies.last.title %></h6>
-    <p class="ml-3"><%= character.biographies.last.chapter %></p>
+    <% if character.biographies.present? %>
+      <h3>Last Chapter:</h3>
+        <h6 class="ml-3"><%= character.biographies.last.title %></h6>
+        <p class="ml-3"><%= character.biographies.last.chapter %></p>
+    <% else %>
+      <h3 class="ml-3">Add a Biography</h3>
+    <% end %>
   </div>
 </div>
 

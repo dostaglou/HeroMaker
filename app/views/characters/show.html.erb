@@ -1,11 +1,62 @@
-<div class="character-background">
-  <div class="character-divider">
+<div class="background-character">
+  <div class="layout-character pt-5">
     <div class="character-details">
+      <div>
+        <% if @character.picture.present? %>
+          <%= image_tag(@character.picture.url) %>
+        <% else %>
+          <%= image_tag('male-human-fighter.jpg') %>
+        <% end %>
+      </div>
 
+    <div class="text">
+      <div class="mt-4 ml-1 row align-items-baseline justify-content-center">
+        <h3 class="pr-3">Name:</h3>
+        <h1 class="styled-font"><%= @character.name %></h1>
+      </div>
+      <div class="mt-1 ml-1 row align-items-baseline justify-content-center">
+        <h5 class="pr-2">Gender:</h5>
+        <h4><%= @character.gender.gender %></h4>
+      </div>
+      <div class="mt-1 ml-1 row align-items-baseline justify-content-center">
+        <h5 class="pr-2">Profession:</h5>
+        <h4><%= @character.profession.job %></h4>
+      </div>
+      <div class="mt-1 ml-1 row align-items-baseline justify-content-center">
+        <h5 class="pr-2">Allies:</h5>
+        <h4><%= @character.allies %></h4>
+      </div>
+      <div class="mt-1 ml-1 row align-items-baseline justify-content-center">
+        <h5 class="pr-2">Enemies:</h5>
+        <h4><%= @character.enemies %></h4>
+      </div>
+      <div class="m-2">
+        <h3>Description:</h3>
+        <p class="ml-3"><%= @character.description %></p>
+      </div>
     </div>
-    <div class="character-info">
-      <%= cl_image_tag(@character.pdf, format: :png) %>
+    </div>
 
+    <div class="character-info">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-pdf" role="tab" aria-controls="pills-pdf" aria-selected="true">PDF</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-full-bio" data-toggle="pill" href="#pills-fullbio" role="tab" aria-controls="pills-fullbioss" aria-selected="false">Full Biography</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-pdf" role="tabpanel" aria-labelledby="pills-home-tab">
+          <%= cl_image_tag(@character.pdf,
+                format: :png
+                )%>
+        </div>
+        <div class="tab-pane fade" id="pills-fullbio" role="tabpanel" aria-labelledby="pills-contact-tab">
+          Some Content
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
