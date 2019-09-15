@@ -1,0 +1,179 @@
+.layout-home {
+
+}
+
+.layout-user {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.layout-character {
+  position: relative;
+  display: flex;
+  max-width: 96%;
+  margin: 0 auto;
+  .character-details {
+    background-color:  rgba(0,0,0,0.5);
+    width: 30%;
+    color: white;
+    text-align: center;
+    img {
+      height: 250px;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 24px;
+    }
+    a {
+      margin: 0 auto;
+    }
+    #dice-roller {
+      background-color: rgba(0,0,0,0.2);
+      margin-bottom: 32px;
+      label {
+        font-weight: bold;
+      }
+    }
+  }
+  .character-info {
+    position: relative;
+    width: 70%;
+
+    #pills-pdf {
+      width: 100%;
+      position: relative;
+      overflow: scroll;
+    }
+  }
+}
+
+
+// Smallest device
+@media (min-width: 100px) {
+  .layout-character {
+    display: block;
+    .character-details {
+      width: 100%;
+    }
+    .character-info {
+      width: 100%;
+    }
+  }
+
+  .layout-story {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 40px;
+    height: 90vh;
+    position: relative;
+    #btns {
+      display:flex;
+      justify-content: center;
+    }
+     h1, p, img, .chapter {
+      display: block;
+      text-align: center;
+    }
+    a {
+      text-align: center;
+    }
+    img {
+      margin: 16px auto;
+      max-width: 250px;
+      max-height: 400px;
+    }
+    #styled-font-white {
+      color: white;
+    }
+    .chapter {
+      div{
+      background-color: rgba(220,220,220,0.3);
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .layout-character {
+    display: block;
+    .character-details {
+      width: 100%;
+    }
+    .character-info {
+      width: 100%;
+    }
+  }
+
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .layout-character {
+    display: block;
+    .character-details {
+      width: 100%;
+    }
+    .character-info {
+      width: 100%;
+    }
+  }
+
+  .layout-story {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 40px;
+    height: 90vh;
+    .layout-story-background {
+      height: 100%;
+      background-image: linear-gradient(rgba(136,80,51,0.3), rgba(136,80,51,0.3)), url(<%= image_url("blank-book.png") %>);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      .book {
+        width: 86%;
+        margin: 0 auto;
+        padding-top: 100px;
+        display: flex;
+        justify-content: space-between;
+        .title-image {
+          width: 46%;
+
+          h1, p {
+            text-align: center;        }
+          img {
+            display: block;
+            margin: 16px auto;
+            max-width: 250px;
+            max-height: 400px;
+          }
+        }
+        .chapter {
+          width: 46%;
+          height: 70vh;
+          overflow-y: scroll;
+        }
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .layout-character {
+    display: flex;
+    .character-details {
+      width: 30%;
+    }
+    .character-info {
+      width: 70%;
+    }
+  }
+
+  //
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

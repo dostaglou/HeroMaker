@@ -1,2 +1,29 @@
-<h1>Stories#show</h1>
-<p>Find me in app/views/stories/show.html.erb</p>
+<div class="background-parchment">
+  <div class="layout-story">
+    <div class="layout-story-background">
+      <div class="book">
+        <div class="title-image">
+          <h1 class="styled-font-black" id="styled-font-white"><u><%= @story.title.capitalize %></u></h1>
+          <% if current_user == @story.user %>
+            <div id="btns">
+            <%= link_to 'Revise', edit_story_path(@story), class: 'dbtn-ghost mr-1' %>
+            <%= link_to 'Discard', story_path(@story), class: 'dbtn-ghost ml-1',  data: { confirm: 'Are you sure?' }, method: :delete %>
+            </div>
+          <% else %>
+            <div id="btns">
+              <%= link_to @story.user.username.capitalize, user_path(@story.user), class: 'dbtn-ghost' %>
+            </div>
+          <% end %>
+          <%= image_tag(@story.picture.url) if @story.picture.present? %>
+          <%= image_tag('fullbook.jpg') %>
+          <p class=""><%= @story.synopsis %></p>
+        </div>
+        <div class="chapter">
+          <div>  <%= @story.content %> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

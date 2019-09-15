@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(story_params)
-    @story.user_id = current_user.user_id
+    @story.user_id = current_user.id
     authorize @story
     if @story.save
       redirect_to story_path(@story)
@@ -44,7 +44,7 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:story).permit(:title, :content, :synopsis)
+    params.require(:story).permit(:title, :picture, :content, :synopsis)
   end
 
   def set_story

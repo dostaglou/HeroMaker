@@ -1,4 +1,4 @@
-.dbtn-ghost{
+.dbtn-ghost {
   color: white;
   padding: 8px 24px;
   border-radius: 12px;
@@ -12,5 +12,24 @@
     transition: .5s;
     color: white;
     cursor: pointer;
+      }
+}
+
+.dbtn {
+  color: grey;
+  padding: 8px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid grey;
+  transition: .5s;
+  text-align: center;
+  opacity: .5;
+  &:hover  {
+    opacity: 1;
+    transition: .5s;
+    color: white;
+    cursor: pointer;
+    background-color: grey;
       }
 }
