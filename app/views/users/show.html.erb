@@ -1,13 +1,25 @@
 <div class="background-user">
 
-    <!-- Text Goes here -->
     <div class="show-text text-center" s>
       <h1 class="styled-font"><%= @user.username.capitalize %>'s Page!</h1>
     </div>
-    <div style="width:90vw; margin: 0 auto;">
-    <%= render  partial: 'shared/char_scroll_display'%>
-    <%= render  partial: 'shared/story_scroll_display'%>
-    <%= render  partial: 'shared/table_scroll_display'%>
+    <div class="layout-user">
+      <div class="row">
+        <div class="col-xs-12 col-md-4 avatar-bg justify-content-center d-flex">
+          <% if @user.picture.present? %>
+            <%= image_url @user.picture %>
+          <% else %>
+            <%= image_tag('female-human-fighter.png') %>
+          <% end %>
+        </div>
+        <div class="col-xs-12 col-md-8">
+          THIS IS SOME CONTENT
+        </div>
+      </div>
+
+      <%= render  partial: 'shared/char_scroll_display'%>
+      <%= render  partial: 'shared/story_scroll_display'%>
+      <%= render  partial: 'shared/table_scroll_display'%>
     </div>
 
 </div>

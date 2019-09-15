@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:display, :show, :edit, :update, :destroy]
+  before_action :set_character, only: [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -14,12 +14,11 @@ class CharactersController < ApplicationController
     @character.user_id = current_user.id
     authorize @character
     if @character.save
-      redirect_to user_path(current_user)
+      redirect_to character_path(@character)
     else
       render :new
     end
   end
-
 
   def edit
     authorize @character
@@ -28,9 +27,8 @@ class CharactersController < ApplicationController
   def update
     authorize @character
     @character.update(character_params)
-    raise
     if @character.save
-      redirect_to user_path(@character.user)
+      redirect_to character_path(@character)
     else
       render :edit
     end

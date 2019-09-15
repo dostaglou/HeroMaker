@@ -3,6 +3,8 @@
 }
 
 .layout-user {
+  width: 90%;
+  margin: 0 auto;
 
 }
 
@@ -12,11 +14,19 @@
   max-width: 96%;
   margin: 0 auto;
   .character-details {
+    background-color:  rgba(0,0,0,0.5);
     width: 30%;
     color: white;
     text-align: center;
     img {
       height: 250px;
+    }
+    #dice-roller {
+      background-color: rgba(0,0,0,0.2);
+      margin-bottom: 32px;
+      label {
+        font-weight: bold;
+      }
     }
   }
   .character-info {
@@ -36,7 +46,7 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .layout-character {
-    display: block;
+    display: flex;
     .character-details {
       width: 100%;
     }
@@ -49,7 +59,7 @@
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .layout-character {
-    display: block;
+    display: flex;
     .character-details {
       width: 100%;
     }
@@ -62,7 +72,7 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .layout-character {
-    display: block;
+    display: flex;
     .character-details {
       width: 100%;
     }

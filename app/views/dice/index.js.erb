@@ -1,0 +1,31 @@
+var number = <%= @number %>;
+var sides = <%= @sides %>;
+var adjustment = <%= @adjustment %>;
+
+
+var roller = (num, sides, adj ) => {
+  let box = document.getElementById('dice-box')
+  let rolls = "";
+  let total = 0
+  if (num > 1) {
+    rolls += "Your individual rolls were:"
+  } else {
+    rolls += "Your roll was "
+  };
+
+  for (i = 0; i < num; i++){
+    var result = Math.floor(Math.random() * sides + 1);
+    if (i === 0) {
+      rolls += ` ${result.toString()}`
+    } else {
+      rolls += `, ${result.toString()}`
+    };
+
+    total += result
+  }
+  rolls += ` with a + ${adj}`
+  total += adj
+  box.innerHTML = `<h4>Your total was <h3>${total}.</h3>${rolls}.</h4>`
+  }
+
+roller(number, sides, adjustment)
