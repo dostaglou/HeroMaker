@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'biographies/show'
+  get 'biographies/new'
+  get 'biographies/edit'
   get 'stories/index'
   get 'stories/show'
   get 'stories/edit'
