@@ -13,7 +13,7 @@ genders =
 professions =
   %w[fighter soldier medic priest shaman monk knight sorcerer mage alchemist herbalist doctor sage scholar thief assassin tracker woodsman charlatan entertainer, musician].sort
 users =
-  %w[dillon john aiden aaron darius rob]
+  %w[Dillon Pat Wyatt]
 tables =
   %w[dungeons dragons wizards warriors]
 
@@ -35,15 +35,6 @@ tables.each do |x|
   one = Table.new(name: x)
   one.save!
   end
-
-zero = User.new(
-  username: "zero",
-  email: 'test0@gmail.com',
-  password: 123123
-)
-zero.save!
-
-puts "post zero / pre user"
 
 users.each do |x|
   one = User.new(
