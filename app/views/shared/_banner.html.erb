@@ -2,6 +2,10 @@
 
   <div class="banner-dialog">
     <h1 class="styled-font">Hero Maker</h1>
+    <% if signed_in? %>
     <%= link_to "Once upon a time...", user_path(current_user.id), class:"dbtn-ghost" %>
+    <% else %>
+    <%= link_to "Once upon a time...", new_user_session_path, class: "dbtn-ghost" %>
+    <% end %>
   </div>
 </div>
