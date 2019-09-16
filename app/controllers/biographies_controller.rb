@@ -1,17 +1,15 @@
 class BiographiesController < ApplicationController
 before_action :set_biography, only: [:show, :edit, :update, :destroy]
-
+before_action :set_character, only: [:new, :create, :edit, :update, :destroy]
   def show
   end
 
   def new
-    @character = Character.find(params[:character_id])
     @biography = Biography.new
     authorize @biography
   end
 
   def create
-    @character = Character.find(params[:character_id])
     @biography = Biography.new(biography_params)
     @biography.character_id = @character.id
     authorize @biography
@@ -53,5 +51,9 @@ before_action :set_biography, only: [:show, :edit, :update, :destroy]
 
   def set_biography
     @biography = Biography.find(params[:id])
+  end
+
+  def set_character
+    @character = Character.find(params[:character_id])
   end
 end

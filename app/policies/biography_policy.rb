@@ -21,10 +21,10 @@ class BiographyPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user = user
+    record.character.user = user
   end
 
   def destroy?
-    record.user = user
+    record.character.user = user
   end
 end
