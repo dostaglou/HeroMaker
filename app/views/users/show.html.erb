@@ -4,16 +4,16 @@
       <h1 class="styled-font"><%= @user.username.capitalize %>'s Page!</h1>
     </div>
     <div class="layout-user">
-      <div class="row">
-        <div class="col-xs-12 col-md-4 avatar-bg justify-content-center d-flex">
+      <div class="user-info">
+        <div>
           <% if @user.picture.present? %>
-            <%= image_url @user.picture %>
+            <%= image_tag @user.picture.url %>
           <% else %>
-            <%= image_tag('female-human-fighter.png') %>
+            <%= image_tag('male-human-fighter.jpg') %>
           <% end %>
         </div>
-        <div class="col-xs-12 col-md-8">
-          THIS IS SOME CONTENT
+        <div id="about">
+
         </div>
       </div>
       <%= render 'shared/char_scroll_display'%>

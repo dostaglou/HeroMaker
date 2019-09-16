@@ -11,7 +11,7 @@
     <% @user.stories.reverse.each do |story| %>
       <%= link_to story_path(story) do  %>
       <div class="scroll-container-item" style="background-image: url(<%= if story.picture.present?
-            image_url(story.picture)
+            image_url(story.picture.url)
               else
             image_url('fullbook.jpg')
             end %>);">

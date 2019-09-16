@@ -66,6 +66,34 @@
 }
 
 
+.layout-user {
+  .user-info{
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    img {
+      display: block;
+      margin: 4px auto;
+      height: 240px;
+      max-width: 240px;
+      border: 2px solid black;
+      background-color: transparent;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    #about {
+      //background-color: rgba(255,255,255, 0.2);
+      border: 2px solid black;
+      border-radius: 10px;
+      p {
+        color: white;
+        margin: 16px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      }
+    }
+  }
+}
+
 // Smallest device
 @media (min-width: 100px) {
   .layout-character {
@@ -175,6 +203,20 @@
       }
     }
   }
+
+  .layout-user {
+    .user-info{
+      display: flex;
+      #about {
+        margin: 4px;
+        height: 240px;
+        flex-grow: 1;
+        p {
+          margin: 16px;
+        }
+      }
+    }
+  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -188,8 +230,6 @@
       width: 70%;
     }
   }
-
-  //
 }
 
 // Extra large devices (large desktops, 1200px and up)

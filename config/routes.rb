@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'abouts/new'
+  get 'abouts/edit'
   devise_for :users
   root to: 'pages#home'
 
@@ -10,5 +12,7 @@ Rails.application.routes.draw do
   end
   resources :stories
   resources :tables
+  resources :abouts
+
   post 'dice', to: 'dice#index'
 end

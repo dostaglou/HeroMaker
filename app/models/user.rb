@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :stories, dependent: :destroy
   has_many :table_user_joins
   has_many :tables, through: :table_user_joins
+  has_one :about
   mount_uploader :picture, PictureUploader
 end
