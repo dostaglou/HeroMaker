@@ -75,12 +75,12 @@ development:
       ignored: '**/node_modules/**'
 
 
-#test:
- # <<: *default
-  #compile: true
+test:
+  <<: *default
+  compile: true
 
   # Compile test packs to a separate directory
-  #bpublic_output_path: packs-test
+  public_output_path: packs-test
 
 production:
   <<: *default
