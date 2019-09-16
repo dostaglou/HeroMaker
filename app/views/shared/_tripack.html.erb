@@ -11,7 +11,11 @@
             <div class="styled-font mt-4">
               <%= story.title %>
             </div>
-            <br>
+            <% if story.picture.present? %>
+              <%= image_tag (story.picture), height: 200, class: "m-4" %>
+            <% else %>
+              <%= image_tag ('fullbook.jpg'), height: 200, class: "m-4" %>
+            <% end %>
             <div class="border-bottom pb-3"  style="color:white">
              <%= story.content %>
             </div>
@@ -27,7 +31,6 @@
             <div class="m-2 mt-4 font-white">
               <%= link_to "#{character.name}", character_path(character), class: "dbtn-ghost mb-2" %>
               <div class="mt-4 ml-1 row align-items-baseline">
-                <h3 class="pr-3">Name:</h3>
                 <h1 class="styled-font"><%= character.name %></h1>
               </div>
               <div class="mt-1 ml-1 row align-items-baseline">
