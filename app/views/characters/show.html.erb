@@ -92,9 +92,12 @@
             <%= cl_image_tag(@character.pdf, format: :png, page: 2, crop: 'scale')%>
         </div>
         <div class="tab-pane fade" id="pills-fullbio" role="tabpanel" aria-labelledby="pills-profile-tab" style="background-color: rgba(255,255,255,0.8)">
+
           <% if @character.biographies.present? %>
             <div class="p-5">
               <% @character.biographies.each do |story| %>
+                <%= link_to 'A New Chapter', new_character_biography_path(@character), class: 'btn btn-primary ml-3 mb-3' %>
+
                 <h6 class="ml-3"><%= story.title %></h6>
                 <p class="ml-3"><%= story.chapter %></p>
               <% end %>

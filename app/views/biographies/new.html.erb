@@ -1,4 +1,13 @@
 <div class="background-stars">
-
-
+  <div class="layout-biography">
+    <div class="background-tome-page">
+      <%= simple_form_for [@character, @biography] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :chapter %>
+        <div class="submit-btn">
+          <%= f.button :submit, class: 'dbtn-ghost' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

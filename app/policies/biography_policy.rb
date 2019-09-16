@@ -1,4 +1,4 @@
-class BiographiesPolicy < ApplicationPolicy
+class BiographyPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -13,7 +13,7 @@ class BiographiesPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user = user
+    record.character.user = user
   end
 
   def edit?

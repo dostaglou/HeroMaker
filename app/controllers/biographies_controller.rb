@@ -5,16 +5,18 @@ before_action :set_biography, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @biography = biography.new
+    @character = Character.find(params[:character_id])
+    @biography = Biography.new
     authorize @biography
   end
 
   def create
-    @biography = biography.new(biography_params)
-    @biography.user_id = current_user.id
+    @character = Character.find(params[:character_id])
+    @biography = Biography.new(biography_params)
+    @biography.character_id = @character.id
     authorize @biography
     if @biography.save
-      redirect_to biography_path(@biography)
+      redirect_to character_path(@biography.character)
     else
       render :new
     end
@@ -28,7 +30,7 @@ before_action :set_biography, only: [:show, :edit, :update, :destroy]
     authorize @biography
     @biography.update(biography_params)
     if @biography.save
-      redirect_to biography_path(@biography)
+      redirect_to character_path(@biography.character)
     else
       render :edit
     end
@@ -50,6 +52,6 @@ before_action :set_biography, only: [:show, :edit, :update, :destroy]
   end
 
   def set_biography
-    @biography = biography.find(params[:id])
+    @biography = Biography.find(params[:id])
   end
 end
