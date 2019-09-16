@@ -1,4 +1,4 @@
 class About < ApplicationRecord
   belongs_to :user
-  validates :about, length: { maximum: 500 }
+  validates :about, length: { maximum: 300 }
 end

@@ -14,6 +14,15 @@
         </div>
         <div id="about">
 
+
+          <% if @user.about.nil? %>
+            <%= link_to "Tell Us About Yourself", new_about_path(@user), class: 'dbtn-ghost' %>
+            <% else %>
+            <p><%= @user.about.about %></p>
+            <%= link_to "Revise", edit_about_path(@user.about), class: 'dbtn-ghost' %>
+          <% end %>
+
+
         </div>
       </div>
       <%= render 'shared/char_scroll_display'%>

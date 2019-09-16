@@ -1,2 +1,5 @@
-<h1>Abouts#edit</h1>
-<p>Find me in app/views/abouts/edit.html.erb</p>
+<%= simple_form_for @about do |f| %>
+  <%= f.input :about, label: "Who are you?", hint: "Max of 300 characters" %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
+
