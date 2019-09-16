@@ -3,18 +3,19 @@
   <div class="scroll-container d-flex">
     <% if current_user == @user %>
       <%= link_to new_character_path do %>
-      <div class="scroll-container-item" style="background-image: url(<%= image_url("female-face.jpg") %>);">
+      <div class="scroll-container-item" style="background-image: url(<%= image_url("vitruvian.png") %>);">
         <p>New</p>
       </div>
       <% end %>
     <% end %>
     <% @user.characters.each do |char| %>
       <%= link_to character_path(char) do  %>
-      <div class="scroll-container-item" style="background-image: url(<%= if char.picture.present?
-            image_url(char.picture)
-              else
-            image_url('male-face.jpg')
-            end %>);">
+      <div class="scroll-container-item" style="background-image: url(
+        <%= if char.picture.present?
+              image_url(char.picture)
+            else
+              char.gender.gender == 'male' ? image_url('male-human-fighter.jpg') : image_url('female-human-fighter.png')
+            end %>); background-size: center; background-repeat: no-repeat;">
       <%= char.name  %>
       </div>
       <% end %>

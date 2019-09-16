@@ -95,15 +95,15 @@
 
           <% if @character.biographies.present? %>
             <div class="p-5">
-              <%= link_to 'A New Chapter', new_character_biography_path(@character), class: 'btn btn-primary ml-3 mb-3' %>
+              <%= link_to 'A New Chapter', new_character_biography_path(@character), class: 'dbtn-ghost ml-3 mb-3' if @character.user == current_user %>
               <% @character.biographies.each do |story| %>
-                <h6 class="ml-3"><%= story.title %></h6>
+                <h3 class="ml-3 mt-3"><%= story.title %></h6>
                 <p class="ml-3"><%= story.chapter %></p>
-                <%= link_to 'Revise Above Chapter', edit_character_biography_path(@character, story), class: 'btn btn-outline-primary ml-3' %>
+                <%= link_to 'Revise Chapter', edit_character_biography_path(@character, story), class: 'dbtn-ghost ml-3' if @character.user == current_user %>
               <% end %>
             </div>
           <% else %>
-            <%= link_to "A New Chapter in #{@character.name}'s Life", new_character_biography_path(@character), class: 'btn btn-primary ml-3' %>
+            <%= link_to "A New Chapter in #{@character.name}'s Life", new_character_biography_path(@character), class: 'btn btn-primary ml-3' if @character.user == current_user %>
           <% end %>
         </div>
       </div>
