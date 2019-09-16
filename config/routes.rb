@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'abouts/new'
-  get 'abouts/edit'
   devise_for :users
   root to: 'pages#home'
 
